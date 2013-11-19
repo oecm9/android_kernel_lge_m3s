@@ -23,7 +23,7 @@ export PATH=${KS}:${CC}:${CC1}:$PATH
 export TARGET_PRODUCT=m3s_virgin_us
 
 mkdir -p out
-make phenomx4_defconfig ARCH=arm CROSS_COMPILE=${CC}/arm-eabi- O=out -j2
+make lge_m3s-perf_defconfig ARCH=arm CROSS_COMPILE=${CC}/arm-eabi- O=out -j2
 if [ "$?" -ne "0" ]; then
   echo "make defconfig failed"
   exit 1
@@ -76,7 +76,7 @@ ln -s "${ORIG_DIR}/${IMG_OUT}" "${TMP_DIR}/${IMG_OUT}" || exit 1
 ln -s "${ORIG_DIR}/update-binary" "${TMP_DIR}/META-INF/com/google/android/update-binary" || exit 1
 
 # zip it up
-ZIP_OUT="lgoe_pernel_[VM]_"`date +%m_%d_%H_%M`".zip"
+ZIP_OUT="lgoe_kernel_[VM]_"`date +%m_%d_%H_%M`".zip"
 cd "${TMP_DIR}"
 zip -0 -r "${ORIG_DIR}/${ZIP_OUT}" *
 cd "${ORIG_DIR}"
